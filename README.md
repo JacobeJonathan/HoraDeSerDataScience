@@ -104,3 +104,89 @@ Escribe otro numero: 300
 - int() con datos o variables dentro de parentesis para convertirlo en número entero.
 
 - str() para convertir números tanto decimales como enteros a strings.
+### Operadores logicos y de comparacion
+- and para comparar si dos valores son verdaderos.
+- or para comparar si dos valores son falsos.
+- not para invertir el valor booleano.
+- == Compara dos valores y te dice si son iguales o no.
+- != Compara dos valores y te dice sin son diferentes o no.
+- -> Compara si es mayor que otro valor.
+- -> Compara si es menor que otro valor.
+- >= igual o mayor que el valor a comparar.
+- <= igual o menor que el valor a comparar.
+
+## Programa conversor de monedas
+```py
+def exchanges(moneda,cantidad):
+    result = 0
+    # Moneda chilena
+    if moneda == 1:
+        result = cantidad * 0.0013
+        print(f'Los {cantidad} pesos chilenos equivalen a {result} dolares')
+    # Moneda colombiana
+    elif moneda == 2:
+        result = cantidad * 0.00027
+        print(f'Los {cantidad} pesos colombianos equivalen a {result} dolares')
+    # Moneda Argentina
+    elif moneda == 3:
+        result = cantidad * 0.014
+        print(f'Los {cantidad} pesos argentinos equivalen a {result} dolares')
+    # Moneda mexicana
+    elif moneda == 4:
+        result = cantidad * 0.044
+        print(f'Los {cantidad} pesos mexicanos equivalen a {result} dolares')
+    # Otro
+    else:
+        print('Ingresa solo un numero de la lista')
+
+
+if __name__ == '__main__':
+    try:
+        moneda = int(input('''
+        Ingresa el indice de la moneda que quieres convertira  dolar:
+            [1] Moneda chilena a Dolar
+            [2] Moneda colombiana a Dolar
+            [3] Moneda argentida a Dolar
+            [4] Moneda mexicana a Dolar
+        Selecciona: '''))
+        print('********************************')
+        cantidad = int(input('Ingresa la cantidad que quieres convertir: '))
+        exchanges(moneda,cantidad)
+    except:
+        print('* * * * * * E R R O R * * * * * *')
+        print('Por favor, Ingresa solo valores numericos')
+```
+### condicionales
+- if
+(Si) se usa para la condición principal.
+
+- elif
+(Si no) en caso de que la condición principal o anterior no se cumpla, se puede utilizar para agregar otra condición.
+
+- else
+(Sino) en caso de que la(s) condición(es) anterior(es) no se cumplan, se ejecuta como alternativa sin condicional.
+```py
+nacionalidad = input("¿Eres peruano? (Responde sí o no) ")
+if nacionalidad == "sí":
+    cambio_a_soles = 3.9865
+    dolares = str(round(float(input("¿Cuántos soles tienes? "))/cambio_a_soles, 2))
+    print("Entonces tienes " + dolares + " dólares.")
+elif nacionalidad == "no":
+    cambio_a_dolares = 0.25298
+    soles = str(round(float(input("Bienvenido a Perú. ¿Cuántos dólares tienes? "))/cambio_a_dolares, 2))
+    print("Entonces tienes " + soles + " soles.")
+else:
+    print("Escribe sólo sí o no, por favor. ")
+
+```
+```py
+numero = input('Escribe un número: ')
+numero = float(numero)
+
+if numero > 5:
+  print('Es mayor a cinco.')
+elif numero == 5:
+  print('Es igual a cinco.')
+else:
+  print('Es menor a cinco.')
+  ```
