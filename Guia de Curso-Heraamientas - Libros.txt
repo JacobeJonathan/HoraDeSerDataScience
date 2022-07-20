@@ -1,0 +1,46 @@
+Leguajes y Herammientas:
+ Python
+ Jupyter
+ Git
+ Terminal
+ Anaconda
+ Excel
+ PostgreSQL
+ SQL Y MYSQL
+ ORACLE DATABASE
+ LINUX
+ 
+Manipulacion:
+ Pandas
+ Numpy
+ DATAWAREHOUSE - ETL - DATAMINING CUBO OLAP (HEFESTO)
+Visualizacion:
+ matplotlib
+ SeaBorn
+ PowerBi
+
+Matematicas:
+ Algebra
+ Probabilidad
+ Estadistica
+ Regresion lineal
+ Libro de mario F triola
+
+Analisis Exploratorio:
+ Univariado
+ Bivariado
+ Multivariado
+ support vector machine
+ analisis de series de tiempo
+
+Machine Learning:
+ Scikit learn
+ Algebra Lineal
+ Calculo
+
+Deep Learning:
+ Tensor flow
+ Keras
+ Pytorch
+ NLTK
+ Hugging Face
