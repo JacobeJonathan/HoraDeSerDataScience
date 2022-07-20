@@ -1,11 +1,12 @@
 Leguajes y Herammientas:
- Python
+ Python(Basico - Estadistica computacional - profesional)
  Jupyter
  Git
  Terminal
  Anaconda
  Excel
  PostgreSQL
+ PostgreSQL Aplicado a Ciencia de Datos
  SQL Y MYSQL
  ORACLE DATABASE
  LINUX
@@ -20,11 +21,12 @@ Visualizacion:
  PowerBi
 
 Matematicas:
+ Libro de mario F triola
  Algebra
  Probabilidad
  Estadistica
  Regresion lineal
- Libro de mario F triola
+ 
 
 Analisis Exploratorio:
  Univariado
