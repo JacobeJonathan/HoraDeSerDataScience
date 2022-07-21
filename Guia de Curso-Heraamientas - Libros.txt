@@ -5,6 +5,7 @@ Leguajes y Herammientas:
  Terminal
  Anaconda
  Excel
+ R(Paquetes para graficar en R https://youtu.be/bYxjgO2dkXI)
  PostgreSQL
  PostgreSQL Aplicado a Ciencia de Datos
  SQL Y MYSQL
