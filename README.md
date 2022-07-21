@@ -190,3 +190,88 @@ elif numero == 5:
 else:
   print('Es menor a cinco.')
   ```
+  - convirtiendo con opciones
+```py
+from tkinter import Menu
+
+
+Menu = """
+Bienvenido al conversor de monedas
+1.- Soles peruanos
+2.- Pesos argentinos
+3.- Pesos colombianos
+
+Choose a option: """
+
+opcion = int(input(Menu))
+if opcion == 1:
+    soles = input("¿Cuantos soles tienes?:")
+    soles = float(soles)
+    valor_dolar = 3.875
+    dolares = soles/valor_dolar
+    dolares = str(dolares)
+    print("Tienes:"+dolares+"dolares")
+elif opcion == 2:
+    pesos = input("¿Cuantos pesos tienes?:")
+    pesos = float(pesos)
+    valor_dolar = 3.875
+    dolares = pesos/valor_dolar
+    print("Tienes"+dolares+"dolares")
+else:
+    print('Ingresa un numero correcto')
+  ```
+- ![Inicio](src/3.png)
+
+### Aprendiendo a no repetir código con funciones
+- Las funciones ayudan a optimizar el código. Es decir, utilizar la menor cantidad de líneas dentro del código y evitar escribir acciones repetitivas.
+
+- Esto nos sirve para entregar un código más limpio y con buenas prácticas, que no desperdicia recursos innecesariamente. En Python, para definir funciones empleamos def.
+
+- Gracias a def, podemos “definir” funciones que emplearemos más tarde. Una función, en programación, es un grupo de instrucciones con un objetivo en particular y que se ejecuta cuando es “invocada”.
+```py
+def conversacion(opcion):
+    print('Hola')
+    print('Cómo estás')
+    print('Elegiste la opcion: ' + str(opcion))
+    print('Adiós')
+
+opcion = int(input('Ingrese una opción (1, 2, 3): '))
+
+if opcion == 1:
+    conversacion(opcion)
+
+elif opcion == 2:
+    conversacion(opcion)
+
+elif opcion == 3:
+    conversacion(opcion)
+
+else:
+    print('Escribe una opción correcta.')
+
+```
+
+### funciones
+- Una función es un bloque de código que realiza alguna operación. Una función puede definir opcionalmente parámetros de entrada que permiten a los llamadores pasar argumentos a la función. Una función también puede devolver un valor como salida.
+```PY
+from tkinter import Menu
+def conversor(tipo_pesos, valor_dolar):
+    pesos = input("cuantos pesos" + tipo_pesos + "tienes?:")
+    pesos = float(pesos)
+    valor_dolar = 3.384
+    dolares = pesos/valor_dolar
+    dolares = str(dolares)
+    print("Tienes $" + dolares + "dolares")
+menu = """
+Bienvenido al conversor de monedas
+1.- Soles peruanos
+2.- Pesos argentinos
+3.- Pesos colombianos
+Elige una opcion:"""
+opcion = int(input(menu))
+
+if opcion == 1:
+    conversor("colombianos",3.789)
+else:
+    print("ELIGE UNA OPCION CORRECTA")
+```
