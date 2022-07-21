@@ -275,3 +275,152 @@ if opcion == 1:
 else:
     print("ELIGE UNA OPCION CORRECTA")
 ```
+### Trabajando con texto: cadenas de caracteres
+- Para trabajar con cadenas de texto en Python, vamos a aplicar una serie de métodos a las variables que hayamos creado anteriormente.
+Método: es una función especial, que existe para un tipo de dato en particular. Por ejemplo, si queremos que el texto ingresado se transforme en mayúsculas.
+- Métodos para trabajar con texto en Python:
+  - variable.strip(): El método strip eliminará todos los caracteres vacíos que pueda contener la variable
+
+  - variable.lower(): El método lower convertirá a las letras en minúsculas.
+
+  - variable.upper(): El método upper convertirá a las letras en mayúsculas.
+
+  - variable.capitalize(): El método capitalize convertirá a la primera letra de la cadena de caracteres en mayúscula.
+
+  - variable.replace (‘o’, ‘a’): El método replace remplazará un caracterer por otro. En este caso remplazará todas las ‘o’ por el caracter ‘a’.
+
+  - len(variable): Te indica la longitud de la cadena de texto dentro de la variable en ese momento.
+  ```py
+  >>> nombre = input ("writte your name: ")
+  writte your name: jonathan
+  >>> nombre
+  'jonathan'
+  >>> nombre.upper()
+  'JONATHAN'
+  >>> nombre.lower()
+  'jonathan'
+  >>> nombre.strip()
+  'jonathan'
+  >>> nombre.capitalize()
+  'Jonathan'
+  ```
+### Trabajando con texto: slices
+- En Python, los slices, traducidos al español como “rebanadas”, nos permiten dividir los caracteres de un string de múltiples formas. A continuación, realizaremos un ejemplo cómo utilizarlos:
+```py
+>>> nombre = "Francisco"
+>>> nombre
+>>> "Francisco"
+>>> nombre[0 : 3]
+El resultado sería
+"Fra"
+```
+### Bucles
+- Un bucle es un ciclo continuo en todos los lenguajes de programación que nos permite iterar sobre nuestros pasos: magina un contador cíclico (1,2,3,4,5,6…) donde puedes agregar un paso más sobre tu programa principal.
+- Ejemplo de bucle en la vida real
+  - Despertar
+  - Estudiar en Platzi
+  - Comer
+  - Dormir
+  ```py
+    >>> def potencia(numero):
+    
+    potencia = 1
+
+    while (potencia <= 10):
+        
+        result = numero ** potencia
+        print('Potencia de {} elevado a la {} es {}'.format(numero, potencia, result))
+        potencia += 1
+        
+
+    >>>  def run():
+    numero = int(input('Escribe el numero al cual quieres averiguarle la potencia: '))
+    potencia(numero)
+
+
+    if __name__ == "__main__":
+        run()
+
+  ```
+- Nos va salir 10 resultados
+### bucle while
+- Un bucle while permite repetir la ejecución de un grupo de instrucciones mientras se cumpla una condición (es decir, mientras la condición tenga el valor True).
+
+- La sintaxis del bucle while es la siguiente:
+
+  ```py
+    def run():
+    LIMITE = 1000000
+    contador = 0
+    potencia_2 = 2**contador
+    while potencia_2 < LIMITE:
+        print('2 elevado a ' + str(contador) +
+              ' es igual a: ' + str(potencia_2))
+        contador = contador + 1
+        potencia_2 = 2**contador
+
+    if __name__ == "__main__":
+        run()
+
+    ```
+
+    ```py
+        contador = 1
+        print(contador)
+        while contador < 1000:
+            contador = contador + 1
+            print(contador)
+    ```
+- cuenta del 1 a 1000
+### for
+- El ciclo for es un tipo de bucle usado cuando se conozcan la cantidad de veces a iterar.
+
+- Un contador es una variable que se encarga de contener valores que irán incrementando o decrementando cada vez que se ejecuta una acción que lo contenga. El incremento o decremento es llamado paso del contador y es siempre constante.
+
+- Ejemplo: El marcador de un partido de fútbol, cada vez que un equipo anote un gol, aumenta su marcador en una unidad.
+- Su sintaxis es:
+  - variable = variable + constante(al incrementar)
+  - variable = variable - constante(al decrementar)
+
+- o de manera resumida:
+
+  - variable += constante
+  - variable -= constante
+    ```py
+    for i in range(10):
+        print(i)
+    ```
+### Proyecto final generador de contraseñas
+```py
+    import random
+import string
+
+def generate_password():
+    # capitalize = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','Y','X','Y','Z']
+    # lowercase = [letter.lower() for letter in capitalize] 
+    # symbols = ['?','¡','¿','%','&','$','#','/','!','+','[']
+    # numbers = ['1','2','3','4','5','6','7','8','9','10']
+
+    # characters = capitalize + lowercase + symbols + numbers
+
+    characters = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
+
+    password = []
+
+    for i in range(15):
+        character_random = random.choice(characters)
+        password.append(character_random)
+
+    password = "".join(password)
+
+    return password
+
+
+
+def run ():
+    password = generate_password()
+    print('Your new password is: ' + password)
+
+if __name__ == '__main__':
+    run()
+```
