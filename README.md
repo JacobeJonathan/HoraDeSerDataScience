@@ -424,3 +424,5 @@ def run ():
 if __name__ == '__main__':
     run()
 ```
+## CursodeFundamentosdeÁlgebraLinealconython
+- El álgebra lineal es una rama de las matemáticas que estudia conceptos tales como vectores, matrices, espacio dual, sistemas de ecuaciones lineales y en su enfoque de manera más formal, espacios vectoriales y sus transformaciones lineales.
