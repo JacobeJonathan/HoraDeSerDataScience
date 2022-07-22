@@ -426,3 +426,55 @@ if __name__ == '__main__':
 ```
 ## CursodeFundamentosdeÁlgebraLinealconython
 - El álgebra lineal es una rama de las matemáticas que estudia conceptos tales como vectores, matrices, espacio dual, sistemas de ecuaciones lineales y en su enfoque de manera más formal, espacios vectoriales y sus transformaciones lineales.
+- Por qué Python para Data Science:
+  - Si ya conoces el lenguaje Python no hace falta que te cuente porque es el elegido en la industria para dar vida a los proyectos de Data Science. Pero si no estás familiarizado con Python estas son algunas de sus características:
+
+   - Es poderoso y sencillo
+   - Tiene múltiples paquetes estadísticos y de aprendizaje automático, listos para usar
+   - Una comunidad muy activa a la que siempre puedes consultar
+- Por qué Anaconda:
+  - Anaconda nos provee de una plataforma muy completa para poder desarrollar nuestros proyectos de Data Science, simplifica la tarea de instalación y configuración de las distintas aplicaciones que necesitaremos usar en nuestro viaje. Podemos utilizarlo tanto por terminal como por interfaz gráfica (GUI). Por el momento avancemos con la segunda opción, es más amigable para quien no está acostumbrado a la línea de comandos.
+  - Instalacion:
+  - Ir a https://www.anaconda.com/distribution/
+  - Selecciona tu versión de Sistema Operativo: Windows - macOS - Linux
+  - Haz click en Descargar/Download “Python 3.7 version” (o click en la versión adecuada para tu CPU 64-bit o 32-bit)
+- Iniciando Anaconda
+Una vez que finalizada la instalación debes abrir el programa Anaconda Navigator para que podamos crear el entorno en cual estaremos estudiando y actualizar los paquetes.
+
+- Haz click en Environments y despues click en +Create. Se abrirá una ventana para crear un nuevo entorno.
+- ![Inicio](src/4.webp)
+- Llena los siguientes campos:
+- ![Inicio](src/5.webp)
+- Name: jacob - FundamentosAL
+- Packages: tilde en Python y del menú desplegable selecciona 3.7
+- ![Inicio](src/6.webp)
+- momento para configurar el nuevo entorno y actualizarlo. Cuando termine verás una pantalla similar a esta
+- ![Inicio](src/7.webp)
+- Los paquetes que ves son los que están instalados por defecto, necesitas instalar varios más. Haz click en installed y cambiarlo a not installed.
+- ![Inicio](src/8.webp)
+- En el recuadro de search packages pon:
+
+   - Jupyter Notebook
+   - scipy (tambien instalará numpy)
+   - pillow (libreria para manejo de imágenes)
+   - imageio (lectura / escritura de imágenes)
+   - matplotlib (para graficar)
+   - seaborn (visualizaciones estadísticas)
+   - scikit-learn (aprendizaje automático - lo usaremos para un ejemplo de PCA)
+- EJERCICIO
+ - Instala el paquete seaborn. Es un paquete para visualizar datos.
+   - 1 - Desde Anaconda Navigator, haz click en Environments
+   - 2 - Selecciona el entorno donde quieres instalar el paquete (Jacob - FundamentosAL)
+   - 3 - Selecciona en el menú desplegable Not Installed
+   - 4 - Escribe en el recuadro de búsqueda seaborn
+   - 5 - Haz click en el paquete seaborn
+   - 6 - Haz click en Apply
+   - 7 - Haz click en Apply, pero esta vez en el pop up que aparece para aceptar todas las dependencias.
+- copia el siguiente codigo:
+    ```js
+        import seaborn as sns
+        vuelos = sns.load_dataset("flights")
+        vuelos = vuelos.pivot("month", "year", "passengers")
+        ax = sns.heatmap(vuelos)
+    ```
+- A los que no les aparezcan los paquetes en “Not Installed”, sólo tienen que darle a “Update index…”.
