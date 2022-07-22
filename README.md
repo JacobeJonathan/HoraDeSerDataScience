@@ -461,6 +461,7 @@ Una vez que finalizada la instalación debes abrir el programa Anaconda Navigato
    - matplotlib (para graficar)
    - seaborn (visualizaciones estadísticas)
    - scikit-learn (aprendizaje automático - lo usaremos para un ejemplo de PCA)
+- Una vez finalizada la instalacion y actualizacion de paquetes en el entorno Platzi - FundamentosAL hacemos click en Home, y Launch Jupyter Notebook. Una nueva pestaña se abrirá en nuestro navegador con Jupyter, ya estamos listos para comenzar el aprendizaje de Fundamentos de Álgebra Lineal con Python.
 - EJERCICIO
  - Instala el paquete seaborn. Es un paquete para visualizar datos.
    - 1 - Desde Anaconda Navigator, haz click en Environments
@@ -478,3 +479,33 @@ Una vez que finalizada la instalación debes abrir el programa Anaconda Navigato
         ax = sns.heatmap(vuelos)
     ```
 - A los que no les aparezcan los paquetes en “Not Installed”, sólo tienen que darle a “Update index…”.
+- Para ejecutar el código de arriba deben instalar Jupyter Lab, se van a home ejecutan Launch de Jupyter Lab, seleccionan Python 3 y pegan el código esperan un momento y les aparecerá el gráfico.
+- ![Inicio](src/9.png)
+- primero codigos:
+    ```py
+    print ('hello world')
+
+
+    from platform import python_version
+    print(python_version())
+
+    ```
+- comentamos con #
+- ejecutar notebooks dentro de otros: %run "archivo_funciones.ipynb"
+
+### Creando las bases, escalares, vectores y matrices. ¿Qué es un tensor? ¿Cómo se representa?
+- Escalar = numero
+- Vector = un lugar donde se colocan muchos numeros
+- Matrices = muchos vectores apilados - filas y comulnas
+- Tensor = muchas matrices se mueve entre filas y columnas entre matrices
+
+- import numpy as np
+    - numpy significa numerical python
+- ![Inicio](src/10.png)
+- interpolacion la union de espacios en un punto
+- ![Inicio](src/11.png)
+- ![Inicio](src/12.png)
+- shape : nos indica de cuanto es la matriz 3*3
+- size : nos da el tamaño total de la matriz 9
+- len: nos dice cuantos elementos hay en la primera columna
+- ![Inicio](src/13.png)
