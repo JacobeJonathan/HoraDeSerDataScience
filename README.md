@@ -524,3 +524,15 @@ Una vez que finalizada la instalación debes abrir el programa Anaconda Navigato
  - ![Inicio](src/17.png)
 - producto interno:
  - ![Inicio](src/18.png)
+
+### Propiedades de las matrices: la multiplicación de matrices es asociativa y distributiva, no es conmutativa
+- ![Inicio](src/19.png)
+- ![Inicio](src/20.png)
+
+### Cómo comprobar la solución de un sistema de ecuaciones lineal
+- En esta clase aprenderemos cómo plantear un sistema de ecuaciones de forma matricial y realizar el proceso para comprobar su solución. Al final nos preguntaremos si existe una operación o elemento para realizar la **división **entre matrices para obtener la solución de un sistema de ecuaciones.
+- ACLARACION: Al final de la clase el profesor hace un despeje dudoso ya que se esta trabajando con matrices, como tenemos Ax = b = (Matriz 2x2)(Matriz 2x1) = (Matriz 2x1). Lo correcto para despejar la matriz (o vector) x seria multiplicar por la izquierda la inversa de A y por tanto nos quedaria como: x = A_inv * b
+- ![Inicio](src/21.png)
+- ![Inicio](src/22.png)
+- calculo manual:
+- ![Inicio](src/23.png)
