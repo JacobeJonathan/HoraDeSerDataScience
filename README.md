@@ -520,4 +520,7 @@ Una vez que finalizada la instalación debes abrir el programa Anaconda Navigato
  - ![Inicio](src/16.png)
 
  ### Producto interno entre una matriz y un vector
-
+- multiplicar una matriz por un vector:
+ - ![Inicio](src/17.png)
+- producto interno:
+ - ![Inicio](src/18.png)
