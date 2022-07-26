@@ -2,7 +2,7 @@
 ![DataScience](src/1.jpg)
 - [ Curso Basico de Python](#BasicoPython)
 - [Curso de Fundamentos de Álgebra Lineal con Python](#CursodeFundamentosdeÁlgebraLinealconython)
-- [Curso de Estadística Computacional con Python](#CursodeEstructurasdeDatosLinealesconPython)
+- [Curso de Estadística Computacional con Python](#CursodeEstadísticaComputacionalconPython)
 - [Curso Profesional de Python](#CursoProfesionaldePython)
 - [Git](#Git)
 - [Terminal](#Terminal)
@@ -536,3 +536,64 @@ Una vez que finalizada la instalación debes abrir el programa Anaconda Navigato
 - ![Inicio](src/22.png)
 - calculo manual:
 - ![Inicio](src/23.png)
+
+###  sistemas sin solución, con una solución y con infinitas
+- ![Inicio](src/24.jpg)
+### Grafica de vectores
+-  un vector​ es un ente matemático como la recta o el plano. Un vector se representa mediante un segmento de recta, orientado dentro del espacio euclidiano tridimensional. El vector tiene 3 elementos: módulo, dirección y sentido.​
+```py
+    %matplotlib inline
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    v1 = np.array([2,5])
+    v2 = np.array([3,2])
+
+    # vecs: vectores.
+    # cols: colores.
+    # alpha: valor de transparencia.
+    def graficarVectores(vecs, cols, alpha=1):
+        plt.figure()
+        plt.axvline(x=0, color="grey", zorder=0)
+        plt.axhline(y=0, color="grey", zorder=0)
+        
+        for i in range(len(vecs)):
+            # El origen de los vectores inicia en el punto (0,0)
+            x = np.concatenate([[0,0], vecs[i]])
+            plt.quiver([x[0]],
+                    [x[1]],
+                    [x[2]],
+                    [x[3]],
+                    angles='xy', scale_units='xy', scale=1, 
+                    color=cols[i], alpha=alpha)
+
+    graficarVectores([v1,v2], ['orange', 'blue'])
+    # Definimos los limites
+    plt.xlim(-1, 8)
+    plt.ylim(-1, 8)
+```
+- ![Inicio](src/25.png)
+
+## CursodeEstadísticaComputacionalconPython
+- Programacion dinamica:
+  - La programación dinámica es la optimización de un algoritmo mediante el desarrollo de subsistemas que van a reducir su tiempo de ejecución.
+- fibonacci dinamico:
+  ```py
+    
+    def fibonacci_dinamico(n, memo = {}):
+        if n == 0 or n == 1:
+            return 1
+
+        try:
+            return memo[n]
+        except KeyError:
+            resultado = fibonacci_dinamico(n-1)+fibonacci_dinamico(n-2)
+            memo[n] = resultado
+            return resultado
+    if __name__ == '__main__':
+        n = int(input('Escoge un numero: '))
+        resultado = fibonacci_dinamico(n)
+        print(resultado)
+
+   ```
