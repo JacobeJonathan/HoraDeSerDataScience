@@ -509,3 +509,15 @@ Una vez que finalizada la instalación debes abrir el programa Anaconda Navigato
 - size : nos da el tamaño total de la matriz 9
 - len: nos dice cuantos elementos hay en la primera columna
 - ![Inicio](src/13.png)
+
+### transponer
+- Transponer: es cambiar filas por columnas
+- ![Inicio](src/14.png)
+### Suma de matrices
+- ![Inicio](src/15.png)
+- se suma cada x y y y se le pone en la nueva matriz
+- ojo: la matrices deben tener la misma dimecion es decir si es de : 2x2 y la otra matriz de 2x2 si se podra realizar la operacion igual de 3x3 y sucesivamente
+ - ![Inicio](src/16.png)
+
+ ### Producto interno entre una matriz y un vector
+
