@@ -890,3 +890,419 @@ Y nuestra gráfica en HTML se vera así.
 - ojo el bokeh no va funcionar porque le falta descargar esa libreria:
 
 - ![Inicio](src/27.png)
+
+### Programación Estocástica
+- Deterministica: Calcular las personas infectadas por Covid según las pruebas realizadas el día de hoy.
+- Estocastica: Calcular cual serán las personas infectadas en los próximos días según el indicador RO.
+- EJEMPLO:
+  - Determinista:
+    - Un programa de ventas de tickets, donde las entradas que de el usuario, deben dar salidas preestablecidas
+
+  - Estocástico:
+    - Un programa de simulación de divisas para trading, utilizando datos históricos para tomar decisiones según probabilidad de escenarios.
+### Probabilidad
+- La probabilidad es una medida de la certidumbre asociada a un evento  suceso futuro y sule expresarse como un numero entre 0 y 1.
+- La probabilidad de 0 significa que nunca sucedera
+- La probalidad de 1 significa que un suceso esta garantizado de suceder en el futuro.
+- ![Probabilidad](src/28.png)
+```py
+    import random
+
+    def tirar_dado(numero_de_tiros):
+        secuencia_de_tiros = []
+
+        for _ in range(numero_de_tiros):
+            tiro = random.choice([1, 2, 3, 4, 5, 6])
+            secuencia_de_tiros.append(tiro)
+
+        return secuencia_de_tiros
+
+    def main(numero_de_tiros, numero_de_intentos):
+        tiros = []
+        for _ in range(numero_de_intentos):
+            secuencia_de_tiros = tirar_dado(numero_de_tiros)
+            tiros.append(secuencia_de_tiros)
+
+        tiros_con_1 = 0
+        for tiro in tiros:
+            if 1 not in tiro:
+                tiros_con_1 += 1
+
+        probabilidad_tiros_con_1 = tiros_con_1 / numero_de_intentos
+        print(f'Probabilidad de no obtener por lo menos un 1 en {numero_de_tiros} tiros = {probabilidad_tiros_con_1}')
+
+
+
+    if __name__ == '__main__':
+        numero_de_tiros = int(input('Cuantas tiros del dado: '))
+        numero_de_intentos = int(input('Cuantas veces correra la simulacion: '))
+
+        main(numero_de_tiros, numero_de_intentos)
+```
+### ejemplo en colab
+
+```py
+    #prob.py
+    ###########################################
+    import random
+    #for plotting
+    from bokeh.plotting import figure, show
+    #Show plot in notebook
+    from bokeh.io import output_notebook
+    output_notebook()
+
+    #throw dice
+    def throw_dice(n_shots):
+        shot_secuence = []
+        for _ in range(n_shots):
+            shot = random.choice([1,2,3,4,5,6])
+            shot_secuence.append(shot)
+        return shot_secuence
+
+    #
+    def plot(sim, prob):
+        plot = figure(title='Probability get 1 with 1 shot',
+                    x_axis_label='Attempts',
+                    y_axis_label='Probability')
+        
+        plot.line(sim,prob)
+        show(plot)
+
+    #Calculus of probability 
+    def calc_prob(shots, n_simulation):
+        shot_1 = 0
+        for shot in shots:
+            if 1 in shot:
+                shot_1 += 1
+        return shot_1 / n_simulation
+
+    #Main
+    def main(n_shots, n_simulation):
+        prob=[]
+        sim=[]
+        for n in range(1,n_simulation,100):
+            shots=[]
+            for _ in range(n):
+                shots_secuence = throw_dice(n_shots)
+                shots.append(shots_secuence)
+    
+            prob_shot_1 = calc_prob(shots, n)
+            #Append values
+            prob.append(prob_shot_1)
+            sim.append(n)
+
+        #prob_shot_1 = calc_prob(shots, n_simulation)
+        #print(f'Prob to get 1:  {prob_shot_1}')
+
+        #plot
+        plot(sim, prob)
+        
+
+    #if __name__ == "__main__":
+    #Inputs
+    n_shots = int(input('Try shots:'))
+    n_simulation = int(input('Simulation number:'))
+
+    #Call main
+    main(n_shots, n_simulation)
+```
+### Inferencia estadistica
+- la muestra si o si debe ser aleatoria
+- ![Probabilidad](src/29.png)
+
+Con las simulaciones podemos calcular las probabilidades de eventos complejos sabiendo las probabilidades de eventos simples.
+
+¿Que pasa cuando no sabemos las probabilidades de los eventos simples? Las técnicas de la **inferencia estadística** nos permiten inferir/concluir las propiedades de una población a partir de una muestra **aleatoria.**
+
+_"El principio guía de la **inferencia estadística** es que una muestra aleatoria tiende a exhibir las mismas propiedades que la población de la cual fue extraída."_ - John Guttag
+
+<div align="center"> 
+  <img src="readme_img/poblacion-muestra.jpeg" width="40%">
+</div>
+
+### Ley de los grandes números
+
+Con la **ley de los grandes números** podemos ver que en pruebas independientes repetidas con la misma probabilidad p de un resultado, la fracción de desviaciones de p converge a cero conforme la cantidad de pruebas se acerca al infinito.
+
+<div align="center"> 
+  <img src="readme_img/grandes-numeros.png" width="30%">
+</div>
+
+### Falacia del apostador
+
+La **falacia del apostador** señala que después de un evento extremo, ocurrirán eventos menos extremos para nivelar la media.
+
+La _regresion a la media_ señala que después de un evento aleatorio extremo, el siguiente evento probablemente será menos extremo.
+
+## Media
+
+La **media** es una medida de tendencia central, comúnmente conocido como promedio. La media de una población se denota con el símbolo μ y la media de una muestra se define con X̄.
+
+<div align="center"> 
+  <img src="readme_img/promedio.png" width="30%">
+</div>
+
+Una forma de calcular la media con Python seria la siguiente.
+
+```py
+import random
+
+def media(X):
+    return sum(X) / len(X)
+
+if __name__ == '__main__':
+    X = [random.randint(9, 12) for i in range(20)]
+    mu = media(X)
+
+    print(f'Arreglo X: {X}')
+    print(f'Media = {mu}')
+```
+
+## Varianza y Desviación Estándar
+
+### Varianza
+
+La **varianza** mide qué tan propagados se encuentran un conjunto de valores aleatorios de su media. Mientras que la **media** nos da una idea de dónde se encuentran los valores, la **varianza** nos dice que tan dispersos se encuentran. La **varianza** siempre debe entenderse con respecto a la media.
+
+<div align="center"> 
+  <img src="readme_img/varianza.png" width="30%">
+</div>
+
+### Desviación estándar
+
+La **desviación estándar** es la raíz cuadrada de la **varianza**. Nos permite entender, también, la propagación y se debe entender siempre relacionado con la **media**.
+
+La ventaja sobre la **varianza** es que la desviación estándar está en las mismas unidades que la **media**.
+
+<div align="center"> 
+  <img src="readme_img/desviacion-estandar.png" width="30%">
+</div>
+
+Vamos a implementar las funciones de **varianza** y **desviación estándar** en nuestro script ya hecho para la **media.**
+
+```py
+import random
+import math
+
+def media(X):
+    return sum(X) / len(X)
+
+
+def varianza(X):
+    mu = media(X)
+
+    acumulador = 0
+    for x in X:
+        acumulador += (x - mu)**2
+
+    return acumulador / len(X)
+
+
+def desviacion_estandar(X):
+    return math.sqrt(varianza(X))
+
+
+if __name__ == '__main__':
+    X = [random.randint(9, 12) for i in range(20)]
+    mu = media(X)
+    Var = varianza(X)
+    sigma = desviacion_estandar(X)
+
+    print(f'Arreglo X: {X}')
+    print(f'Media = {mu}')
+    print(f'Varianza = {Var}')
+    print(f'Desviacion estandar = {sigma}')
+```
+
+## Distribución Normal
+
+La **distribución normal** es una de las distribuciones mas recurrentes en cualquier ámbito. Se define completamente por su **media** y su **desviación estándar**. Permite calcular **intervalos de confianza** con la regla empírica.
+
+<div align="center"> 
+  <img src="readme_img/distribucion-normal.png" width="30%">
+</div>
+
+En el siguiente ejemplo vamos una unas distribuciones con desviación estándar 1 y 3. Cuando la desviación es baja significa la variabilidad de los datos es menor.
+
+<div align="center"> 
+  <img src="readme_img/variation-samples.webp" width="60%">
+</div>
+
+### Regla empírica
+
+También conocida como la regla 68-95-99.7. Señala cuál es la dispersión de los datos en una distribución normal a uno, dos y tres sigmas.
+
+Permite calcular probabilidades con la densidad de la distribución normal.
+
+<div align="center"> 
+  <img src="readme_img/regla-empirica.png" width="30%">
+</div>
+
+<div align="center"> 
+  <img src="readme_img/distribucion-normal-grafico.png" width="70%">
+</div>
+
+# Simulaciones de Montecarlo
+
+## ¿Qué son las Simulaciones de Montecarlo?
+
+Permite crear simulaciones para predecir el resultado de un problema, además de convertir problemas determinísticos en problemas estocásticos.
+
+Es utilizado en gran diversidad de áreas, desde la ingeniería hasta la biología y el derecho.
+
+## Simulación de Barajas
+
+```py
+import random
+import collections
+
+PALOS = ['espada', 'corazon', 'rombo', 'trebol']
+VALORES = ['as', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jota', 'reina', 'rey']
+
+def crear_baraja():
+    barajas = []
+    for palo in PALOS:
+        for valor in VALORES:
+            barajas.append((palo, valor))
+
+    return barajas
+
+def obtener_mano(barajas, tamano_mano):
+    mano = random.sample(barajas, tamano_mano)
+    
+    return mano
+
+def main(tamano_mano, intentos):
+    barajas = crear_baraja()
+
+    manos = []
+    for _ in range(intentos):
+        mano = obtener_mano(barajas, tamano_mano)
+        manos.append(mano)
+
+    pares = 0
+    for mano in manos:
+        valores = []
+        for carta in mano:
+            valores.append(carta[1])
+
+        counter = dict(collections.Counter(valores))
+        for val in counter.values():
+            if val == 3:
+                pares += 1
+                break
+
+    probabilidad_par = pares / intentos
+    print(f'La probabilidad de obtener un par en una mano de {tamano_mano} barajas es {probabilidad_par}')
+
+
+if __name__ == '__main__':
+    tamano_mano = int(input('De cuantas barajas sera la mano: '))
+    intentos = int(input('Cuantos intentos para calcular la probabilidad: '))
+
+    main(tamano_mano, intentos)
+```
+
+## Cálculo de PI
+
+Calcularemos PI con puntos al azar esparcidos en un plano cartesiano utilizando los scripts de **desviación estándar** y **media** que creados anteriormente. Queremos tener un **95% de certeza**, entonces para ello realizaremos el cálculo para 1/2 del área de un circulo, optimizando nuestros recursos.
+
+```py
+import random
+import math
+from estadisticas import desviacion_estandar, media
+
+def aventar_agujas(numero_de_agujas):
+    adentro_del_circulo = 0
+
+    for _ in range(numero_de_agujas):
+        x = random.random() * random.choice([-1, 1])
+        y = random.random() * random.choice([-1, 1])
+        distancia_desde_el_centro = math.sqrt(x**2 + y**2)
+
+        if distancia_desde_el_centro <= 1:
+            adentro_del_circulo += 1
+
+    # La variable adentro_del_circulo representa 1/4 del área del círculo,
+    # y como solo utilizaremos 1/2 vamos a multiplicarlo por 2.
+    return (2 * adentro_del_circulo) / numero_de_agujas
+
+
+def estimacion(numero_de_agujas, numero_de_intentos):
+    estimados = []
+    for _ in range(numero_de_intentos):
+        estimacion_pi = aventar_agujas(numero_de_agujas)
+        estimados.append(estimacion_pi)
+
+    media_estimados = media(estimados)
+    sigma = desviacion_estandar(estimados)
+
+    # La variable media_estimados tiene los resultados sobre 1/2 del área del
+    # círculo. Para obtener la estimación de PI completo lo vamos a multiplicar por 2.
+    print(f'Est={round(media_estimados, 5) * 2}, sigma={round(sigma, 5)}, agujas={numero_de_agujas}')
+
+    return (media_estimados, sigma)
+
+def estimar_pi(precision, numero_de_intentos):
+    numero_de_agujas = 1000
+    sigma = precision
+
+    while sigma >= precision / 1.96:
+        media, sigma = estimacion(numero_de_agujas, numero_de_intentos)
+        numero_de_agujas *= 2
+
+    return media
+
+if __name__ == '__main__':
+    estimar_pi(0.01, 1000)
+```
+
+Vamos a la consola y ejecutamos nuestro programa.
+
+```bash
+python3 calculo_pi.py   # Ejecutamos nuestro script.
+
+# Y estos serán nuestros resultados.
+Est=3.14234, sigma=0.02594, agujas=1000
+Est=3.13966, sigma=0.01795, agujas=2000
+Est=3.143, sigma=0.01272, agujas=4000
+Est=3.14076, sigma=0.00949, agujas=8000
+Est=3.14142, sigma=0.00678, agujas=16000
+Est=3.14154, sigma=0.00457, agujas=32000
+```
+
+# Muestreo e Intervalos de Confianza
+
+## Muestreo
+
+El **muestreo** es muy importante cuando no tenemos acceso a toda la población que queremos explorar. Uno de los grandes descubrimientos de la estadística es que las **muestras aleatorias** tienden a mostrar las mismas propiedades de la población objetivo. Hasta este punto todos los **muestreos** que hemos hecho son de tipo **probabilísticos**.
+
+En un **muestreo aleatorio** cualquier miembro de la población tiene la misma probabilidad de ser escogido.
+
+En un **muestreo estratificado** tomamos en consideración las características de la población para partirla en subgrupos y luego tomamos muestras de cada subgrupo, esto incrementa la probabilidad de que el muestreo sea representativo de la población.
+
+## Teorema del Límite Central
+
+El **teorema del límite central** es uno de los teoremas más importantes de la estadística. Establece que **muestras aleatorias** de cualquier distribución van a tener una **distribución normal**. Esto permite entender cualquier distribución como la **distribución normal de sus medias** y eso nos permite aplicar todo lo que sabemos de **distribuciones normales.**
+
+Mientras más muestras obtengamos, mayor será la similitud con la distribución normal. Mientras la muestra sea de mayor tamaño, la desviación estándar será menor.
+
+<div align="center"> 
+  <img src="readme_img/limite-central.png" width="70%">
+</div>
+
+# Datos Experimentales
+
+## ¿Cómo trabajar con datos experimentales?
+
+Los **datos experimentales** son aquellos que se generan a través del **método científico**.
+
+- Con el **método científico** es necesario comenzar con una _teoría_ o _hipótesis_ sobre el resultado al que se quiere llegar. 
+- Basado en la _hipótesis_ se debe crear un experimento para **validad** o **falsear** la _hipótesis_.
+- Se **valida** o **falsea** una _hipótesis_ midiendo la diferencia entre las mediciones experimentales y aquellas mediciones predichas por la _hipótesis_.
+
+## Regresión Lineal
+
+La **regresión lineal** nos permite aproximar una función a un conjunto de datos obtenidos de manera experimental. No necesariamente permite aproximar funciones lineales, sino que sus variantes permiten aproximar cualquier **función polinómica.**
+
+Para ver un ejemplo de regresiones lineales en _Python_ en el siguiente enlace puedes acceder a ver un ejemplo: [Collab - Regresión Lineal.](https://colab.research.google.com/drive/1c0Lx0xQyxuoZsnVKZzMFcANykA5VWN5F)
