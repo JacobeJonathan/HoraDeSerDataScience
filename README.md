@@ -888,4 +888,5 @@ Y nuestra gráfica en HTML se vera así.
   <img src="readme_img/random-walk-chart.png" width="70%">
 </div>
 - ojo el bokeh no va funcionar porque le falta descargar esa libreria:
-- - ![Inicio](src/26.png)
+
+- ![Inicio](src/27.png)
