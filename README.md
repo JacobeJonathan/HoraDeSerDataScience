@@ -597,3 +597,295 @@ Una vez que finalizada la instalación debes abrir el programa Anaconda Navigato
         print(resultado)
 
    ```
+### caminos aleatorios
+- Es un tipo de desicion que elige aleatoriamente una decision dentro de un conjunto de decisiones validas.
+- Lugares dónde utilizaría los caminos aleatorios:
+   - clima
+   - valor de los pasajes aereos
+   - inflación
+   - valor del bitcoin
+   - reacción del público ante un nuevo producto
+   - Algunas aplicaciones:
+   - Arribo de clientes a un banco / Peticiones de Clientes a un Servidor 
+   - Tiempo de atención de un reclamo 
+   - Teoría de Colas 
+   - Simulación de Sistemas.
+   - Ofertas en Subastas.
+   - Cantidad de Defectos por Artículo Producido
+   - Distribución Poisson 
+   - Control de Calidad
+   - Auditoria de expedientes 
+   - Muestra sin Reposición.
+   - Cálculo de Area para curvas no Diferenciales.
+   - Ruta crítica de un proyecto, escenario de pésimo, moderado y optimista de tareas 
+   - Distribución Triangular, por ejemplo.
+   - Diseño de Experimentos 
+   - Factores aleatorios
+   - Machine Learning.
+   - Video Juegos, juegos de apuestas virtuales.
+### Entendiendo la aleatoriedad con Python
+- caso de borrachos
+  - Un borracho
+  - Donde se mueve el borracho
+  - Coordenadas
+- Si lo queremos ver en términos de programación orientada a objetos; nos podemos imaginar al borracho cómo alguien que se mueve, el campo como si fuera un mapa y la coordenada como un pointer adentro de este mapa.
+- Otra cosa bien interesante es que dentro de la programación orientada a objetos es que nosotros podemos generar una jerarquía, y la jerarquía básicamente es como nosotros  podemos expandir cosas generales que hereden de un padre.
+- ![Inicio](src/26.png)
+- En ese código se usó el enfoque de POO 💩.
+- Se tienen 3 clases: borracho, campo y coordenada. Una subclase de borracho es borracho tradicional, el cual se puede mover aleatoriamente hacia arriba, derecha, izquierda y abajo con igual probabilidad.
+- Dado que inicia en $(0, 0)$, nos interesa conocer donde está después de $n$ pasos. Al final, para ver donde termino, podemos usar la distancia euclidiana. .- Dado que es aleatorio, no se aleja tanto del centro.
+- Si corremos solo la simulación una vez para cada $n$, no podríamos conocer el promedio y el comportamiento general, debemos correrlo varias veces (como si lanzáramos un dado). En el ejemplo lo hacemos 100 veces (intentos).
+- En general, en cada simulación, podemos esperar resultados diferentes, pero el promedio será siempre el mismo.
+Este es un ejercicio donde empezando desde un punto 0 **aleatoriamente** podemos decidir que dirección tomar, dependiendo de las opciones establecidas.
+
+<div align="center"> 
+  <img src="readme_img/random-walk-1.gif" height="250">
+</div>
+
+Para realizar un ejemplo de aleatoriedad vamos a crear un programa que representara el problema del "Camino de Borrachos". Para esto crearemos 3 clases: uno que represente al **agente que camina**, una que genere una **abstracción de las coordenadas** y una que represente el **plano** en el cual nos estamos moviendo, y vamos a graficar la distancia en la que termina nuestro agente a medida que definimos una mayor cantidad de pasos que puede dar. 
+
+Primero crearemos un ambiente virtual, para ello vamos a la terminar.
+
+```bash
+mkdir camino_de_borramos    # Creamos una carpeta para nuestro proyecto.
+cd camino_de_borrachos      # Ingresamos a la carpeta.
+python3 -m venv env         # Creamos nuestro ambiente virtual.
+source env/bin/activate     # Activamos nuestro ambiente.
+pip install bokeh           # Instalamos el paquete de bokeh para generar nuestra gráfica.
+```
+
+Luego de haber creado nuestro entorno de trabajo creamos los siguientes archivos en nuestra carpeta.
+
+```py
+# Creamos un archivo borracho.py
+import random
+
+# Creamos nuestra Clase borracho.
+class Borracho:
+
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+
+# Creamos la clase BorrachoTradicional que extiende de Borracho.
+class BorrachoTradicional(Borracho):
+
+    def __init__(self, nombre):
+        super().__init__(nombre)
+
+    # Y tendrá un método caminar que devolverá la dirección a la que ira.
+    def camina(self):
+        # Con random.choice elegimos un elemento aleatoriamente de la lista.
+        return random.choice([(0, 1), (0, -1), (1, 0), (-1, 0)])
+```
+
+```py
+# Creamos un archivo coordenada.py
+
+# La clase Coordenada guardara las coordenadas de nuestro agente
+class Coordenada:
+
+    # Definimos unas posiciones iniciales.
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    # Y cuando se mueve simplemente a las coordenadas actuales se les
+    # suma las coordenadas X e Y que ingresan como parámetros.
+    def mover(self, delta_x, delta_y):
+        return Coordenada(self.x + delta_x, self.y + delta_y)
+
+
+    # Y si queremos saber la distancia del agente con respecto a
+    # unas coordenadas, simplemente lo calculamos con el
+    # teorema de Pitágoras.
+    def distancia(self, otra_coordenada):
+        delta_x = self.x - otra_coordenada.x 
+        delta_y = self.y - otra_coordenada.y 
+
+        return (delta_x**2 + delta_y**2)**0.5
+```
+
+```py
+# Creamos un archivo campo.py
+class Campo:
+
+    # Nuestra clase tendrá como atributo un diccionario.
+    def __init__(self):
+        self.coordenadas_de_borrachos = {}
+
+
+    # Añadimos un agente a nuestro diccionario, nuestra llave sera
+    # nuestro parámetro "borracho" y tendrá el valor asignado "coordenada"
+    # que es una clase Coordenada creado en coordenada.py.
+    def anadir_borracho(self, borracho, coordenada):
+        self.coordenadas_de_borrachos[borracho] = coordenada
+
+
+    def mover_borracho(self, borracho):
+        # Al mover a nuestro agente ejecutamos el método camina de
+        # nuestra clase BorrachoTradicional creado en el archivo borracho.py,
+        # devolviendo la dirección hacia donde se movió.
+        delta_x, delta_y = borracho.camina()
+
+        # Obtenemos el objeto de Coordenada.
+        coordenada_actual = self.coordenadas_de_borrachos[borracho]
+
+        # Del objeto Coordenada ejecutamos el método mover con los parámetros
+        # que el objeto borracho genero. El resultado lo guardamos en
+        # nueva_coordenada.
+        nueva_coordenada = coordenada_actual.mover(delta_x, delta_y)
+
+        # El objeto guardado en nueva_coordenada ahora estará asociado
+        # a la llave de borracho.
+        self.coordenadas_de_borrachos[borracho] = nueva_coordenada
+
+
+    def obtener_coordenada(self, borracho):
+        return self.coordenadas_de_borrachos[borracho]
+```
+
+```py
+# Creamos el archivo camino_aleatorio.py
+
+# Importamos las clases que creamos anteriormente.
+from borracho import BorrachoTradicional
+from campo import Campo
+from coordenada import Coordenada
+
+# Importamos bokeh para generar un gráfico con nuestros resultados.
+from bokeh.plotting import figure, show
+
+
+def caminata(campo, borracho, pasos):
+    # De la instancia Campo obtenemos las coordenadas actuales de la llave "borracho".
+    inicio = campo.obtener_coordenada(borracho)
+
+    # Repetiremos la misma cantidad de pasos definidos.
+    for _ in range(pasos):
+
+        # De la instancia campo ejecutaremos mover_borracho.
+        campo.mover_borracho(borracho)
+
+    # Y devolveremos la distancia entre las coordenadas de la instancia
+    # inicio y campo.
+    return inicio.distancia(campo.obtener_coordenada(borracho))
+
+
+def simular_caminata(pasos, numero_de_intentos, tipo_de_borracho):
+
+    # Definimos los parámetros para crear una instancia de Campo.
+    borracho = tipo_de_borracho(nombre='Karl')
+    origen = Coordenada(0, 0)
+
+    # Creamos una lista que guardara las distancias en cada simulación.
+    distancias = []
+
+    # Por cada numero de intento.
+    for _ in range(numero_de_intentos):
+
+        # Creamos una instancia de Campo.
+        campo = Campo()
+
+        # A nuestra instancia de Campo le damos la llave borracho y sus coordenadas de origen.
+        campo.anadir_borracho(borracho, origen)
+
+        # Obtenemos la distancia final de la simulación.
+        simulacion_caminata = caminata(campo, borracho, pasos)
+
+        # El resultado lo guardamos en la lista de distancias.
+        distancias.append(round(simulacion_caminata, 1))
+    
+    # Retornamos la lista de distancias.
+    return distancias
+
+
+def graficar(x, y):
+    # Creamos una instancia de figure, con su titulo y las etiquetas de los ejes.
+    grafica = figure(title='Camino aleatorio', x_axis_label='pasos', y_axis_label='distancia')
+
+    # Ingresamos los datos de X e Y.
+    grafica.line(x, y, legend='distancia media')
+
+    # Generamos una gráfica en HTML.
+    show(grafica)
+
+
+def main(distancias_de_caminata, numero_de_intentos, tipo_de_borracho):
+
+    # Creamos una lista que guardara el promedio de cada caminata.
+    distancias_media_por_caminata = []
+
+    # Por cada ítem en nuestras series de caminata.
+    for pasos in distancias_de_caminata:
+
+        # Guardamos las distancias que generan todas las simulaciones definido en numero_de_intentos.
+        distancias = simular_caminata(pasos, numero_de_intentos, tipo_de_borracho)
+
+        # De la lista de distancias obtenemos la distancia promedio.
+        distancia_media = round(sum(distancias) / len(distancias), 4)
+
+        # De la lista de distancias obtenemos el máximo valor.
+        distancia_maxima = max(distancias)
+
+        # De la lista de distancias obtenemos el menor valor.
+        distancia_minima = min(distancias)
+
+        # Guardamos el promedio de la caminata en la lista distancias_media_por_caminata.
+        distancias_media_por_caminata.append(distancia_media)
+
+        # Imprimimos los datos de la caminata actual.
+        print(f'{tipo_de_borracho.__name__} caminata aleatoria de {pasos} pasos')
+        print(f'Media = {distancia_media}')
+        print(f'Max = {distancia_maxima}')
+        print(f'Min = {distancia_minima}')
+
+    # Generamos un gráfico con la información de las distancias finales según la cantidad de pasos.
+    graficar(distancias_de_caminata, distancias_media_por_caminata)
+
+if __name__ == '__main__':
+    # Definamos cuantos pasos queremos que camine en cada serie.
+    distancias_de_caminata = [10, 100, 1000, 10000]
+    
+    # Determinamos la cantidad de simulaciones que generara en cada serie.
+    numero_de_intentos = 100
+
+    # Ejecutamos el método main con los parámetros definidos anteriormente
+    # y además pasamos la clase BorrachoTradicional
+    main(distancias_de_caminata, numero_de_intentos, BorrachoTradicional)
+```
+
+Dentro el pensamiento **estocástico** debemos realizar varias simulaciones, por ese motivo en el ejemplo anterior realizamos varios intentos. Lo importante de esta aleatoriedad es que podemos distribuirla a lo largo de varios intentos, con esto podemos obtener certeza de que el comportamiento de nuestro programa se comporte en que esperamos estadísticamente.
+
+Para ejecutar nuestro programa iremos nuevamente a la consola.
+
+```bash
+python3 camino_aleatorio.py     # Ejecutamos nuestro programa
+
+# Y veremos nuestros resultados:
+
+BorrachoTradicional caminata aleatoria de 10 pasos
+Media = 2.639
+Max = 6.3
+Min = 0.0
+BorrachoTradicional caminata aleatoria de 100 pasos
+Media = 8.914
+Max = 23.5
+Min = 1.4
+BorrachoTradicional caminata aleatoria de 1000 pasos
+Media = 28.58
+Max = 73.8
+Min = 2.0
+BorrachoTradicional caminata aleatoria de 10000 pasos
+Media = 86.012
+Max = 241.3
+Min = 22.4
+```
+
+Y nuestra gráfica en HTML se vera así.
+
+<div align="center"> 
+  <img src="readme_img/random-walk-chart.png" width="70%">
+</div>
+- ojo el bokeh no va funcionar porque le falta descargar esa libreria:
+- - ![Inicio](src/26.png)
