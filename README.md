@@ -3,6 +3,7 @@
 - [ Curso Basico de Python](#BasicoPython)
 - [Curso de Fundamentos de Álgebra Lineal con Python](#CursodeFundamentosdeÁlgebraLinealconython)
 - [Curso de Estadística Computacional con Python](#CursodeEstadísticaComputacionalconPython)
+- [Curso de Python Intermedio: Comprehensions, Lambdas y Manejo de Errores](#CursodePythonIntermedioComprehensionsLambdasyManejodeErrores)
 - [Curso Profesional de Python](#CursoProfesionaldePython)
 - [Git](#Git)
 - [Terminal](#Terminal)
