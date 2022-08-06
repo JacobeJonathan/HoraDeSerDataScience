@@ -1307,3 +1307,65 @@ Los **datos experimentales** son aquellos que se generan a través del **método
 La **regresión lineal** nos permite aproximar una función a un conjunto de datos obtenidos de manera experimental. No necesariamente permite aproximar funciones lineales, sino que sus variantes permiten aproximar cualquier **función polinómica.**
 
 Para ver un ejemplo de regresiones lineales en _Python_ en el siguiente enlace puedes acceder a ver un ejemplo: [Collab - Regresión Lineal.](https://colab.research.google.com/drive/1c0Lx0xQyxuoZsnVKZzMFcANykA5VWN5F)
+
+
+## CursodePythonIntermedioComprehensionsLambdasyManejodeErrores
+
+### El Zen de Python
+- El Zen de python son los principios de este lenguaje lo que quiere es escribir tu código de manera clara, sencilla y precisa.
+
+  -  Bello es mejor que feo.
+  -  Explícito es mejor que implícito.
+  -  Simple es mejor que complejo.
+  -  Complejo es mejor que complicado.
+  -  Plano es mejor que anidado.
+  -  Espaciado es mejor que denso.
+  -  La legibilidad es importante.
+  -  Los casos especiales no son lo suficientemente especiales como para romper las reglas.
+  -  Sin embargo la practicidad le gana a la pureza.
+  -  Los errores nunca deberían pasar
+
+- ![import this python](src/30.png)
+
+### ¿Qué es la documentación?
+- Informacion que nos explica como funciona determinado leguaje o tecnologia: 
+    - Consultar informacion clara y directa
+    - Tener ejemplo de los mismos desarrolladores
+    - Referencias de todas las caracteristicas y funcionalidades en un solo lugar
+    - Conocer los nuevos features de nuevas actualizaciones
+    - Conocer el modo de empleo de versiones anteriores
+    - Aprender a manejar correctamente las herramientas
+    - Que contienen los modulos integrados dentro de python
+    - Como manejar los modulos
+    - Manejo y uso de frameworks
+    - Ser autodidacta
+
+- una herramienta por si no les gusta leer la documentación desde la página o prefieren ir documentándose mientras programan 😉 les recomiendo que usen ***Kite*** que les brinda la documentación de cada función que escriban en su código con solo poner el cursor encima.
+
+### ¿Qué es un entorno virtual?
+- Los entornos virtuales son de mucha utilidad ya que nos ayudan a tener versiones especificas de librerías o módulos a un proyecto sin afectar a otros. De esta forma en el mismo equipo pueden coexistir distintos proyectos con distintas versiones de la misma librería o modulo.
+- Sin usar entorno virtual:
+- ![sin usar](src/31.png)
+- Usando entorno virtual:
+- ![usar](src/32.png)
+
+### creación de un entorno virtual
+- py = python3
+- -m = indicativo = un modulo
+- venv = virtual enviroment = ambiente virtual
+- venv = es el nombre le podemos poder cualquiera
+- ![usar](src/33.png)
+- ![usar](src/34.png)
+- Finalizamos con la creacion de un entorno virtual
+- alt + 92 creamos el ***backslash*** \
+### Instalación de dependencias con pip
+- Pip (package installer for python) Nos permite descargar paquetes de terceros para utilizarlos en nuestro enviroment, ademas se puede definir una versión especifica del paquete.
+  - pip install <paquete> instala el paquete(pandas , matplotlib, bokeh, etc) que se especifique
+
+  - pip freeze muestra todos los paquetes instalados en tu ambiente virtual
+
+- Si quisiéramos que alguien mas pueda ejecutar nuestro proyecto es importante compartir que librería y versión hemos empleado; eso se realiza con el comando:
+  - pip freeze > requirements.txt
+
+- El resultado de pip freeze se escribe en requirements.txt (puedes usar otro nombre pero el mostrado es una buena practica)para instalar paquetes desde un archivo como requirements.txt ejecutamos:
+  - pip install -r requirements.txt 
