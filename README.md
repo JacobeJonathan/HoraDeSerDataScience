@@ -1369,3 +1369,41 @@ Para ver un ejemplo de regresiones lineales en _Python_ en el siguiente enlace p
 
 - El resultado de pip freeze se escribe en requirements.txt (puedes usar otro nombre pero el mostrado es una buena practica)para instalar paquetes desde un archivo como requirements.txt ejecutamos:
   - pip install -r requirements.txt 
+## CursoProfesionaldePython
+
+### Cómo organizar las carpetas de tus proyectos
+- Un módulo es cualquier archivo de Python. Generalmente, contiene código que puedes reutilizar.
+
+- 🗄 Un paquete es un conjunto de módulos. Siempre posee el archivo __init__.py.
+Una ejemplo de organizar los archivos de 🐍Python es de la siguiente manera.
+- ![usar](src/35.png)
+
+### ¿Qué son los tipados?
+
+- 💻 Los tipados es una clasificación de los lenguajes de programación, tenemos cuatro tipos:
+
+   - Estático
+   - Dinámico
+   - Débil
+   - Fuerte
+   - El tipado del lenguaje depende de cómo trata a los tipos de datos.
+
+- El tipado estático es el que levanta un error en el tiempo de compilación, ejemplo en JAVA:
+    ```bash
+        String str = "Hello" // Variable tipo String
+        str = 5 // ERROR: no se puede convertir un tipo de dato en otro de esta forma.
+    ```
+- El tipado dinámico levantan el error en tiempo de ejecución, ejemplo en Python:
+     ```bash
+        str = "Hello" # Variable tipo String
+        str = 5 # La variable ahora es de tipo Entero, no hay error
+
+        ## TIPADO FUERTE
+        x = 1
+        y = "2"
+        z = x + y # ERROR: no podemos hacer estas operaciones con tipos de datos distintos entre sí
+    ```
+- El tipado débil es el que hace un cambio en un tipo de dato para poder operar con el, como lo hace JavaScript y PHP.
+
+- 🐍 Python es un lenguaje de tipado 👾 Dinámico y 💪 Fuerte.
+- ![usar](src/36.png)
