@@ -1407,3 +1407,11 @@ Una ejemplo de organizar los archivos de 🐍Python es de la siguiente manera.
 
 - 🐍 Python es un lenguaje de tipado 👾 Dinámico y 💪 Fuerte.
 - ![usar](src/36.png)
+### Closures
+- Es una forma de acceder a variables de otros scopes a través de una nested function. Se retorna la nested function y esta recuerda el valor que imprime, aunque a la hora de ejecutarla no este dentro de su alcance.
+- reglas para encontrar un closure:
+   - debemos tener una nested function (funciones anidadas)
+   - la nested function debe referenciar un valor de un scope superior
+   - la función que envuelve la nested debe retornarla también
+   - cuando tenemos una clase que tiene solo un método
+   - cuando trabajamos con decoradores
