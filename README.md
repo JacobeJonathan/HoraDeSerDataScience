@@ -1415,3 +1415,72 @@ Una ejemplo de organizar los archivos de 🐍Python es de la siguiente manera.
    - la función que envuelve la nested debe retornarla también
    - cuando tenemos una clase que tiene solo un método
    - cuando trabajamos con decoradores
+## Git
+- Git es un sistema de control de versiones distribuido, diseñado por Linus Torvalds. Está pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando estas tienen un gran número de archivos de código fuente.
+
+  - Git está optimizado para guardar cambios de forma incremental.
+
+  - Permite contar con un historial, regresar a una versión anterior y agregar funcionalidades.
+
+  - Lleva un registro de los cambios que otras personas realicen en los archivos.
+
+- Git fue diseñado para operar en un entorno Linux. Actualmente, es multiplataforma, es decir, es compatible con Linux, MacOS y Windows. En la máquina local se encuentra Git, se utiliza bajo la terminal o línea de comandos y tiene comandos como merge, pull, add, commit y rebase, entre otros.
+
+- Para qué proyectos sirve Git
+  - Con Git se obtiene una mayor eficiencia usando archivos de texto plano, ya que con archivos binarios no puede guardar solo los cambios, sino que debe volver a grabar el archivo completo ante cada modificación, por mínima que sea, lo que hace que incremente demasiado el tamaño del repositorio.
+- ![usar](src/37.webp)
+### Instalando Git y GitBash en Windows
+- Para instalar este sistema de control de versiones en Windows, simplemente vas al repositorio de descarga. Luego de descargarlo, lo ejecutas como cualquier otra aplicación de Windows.
+
+- Al momento de iniciar el instalador, asegúrate de haber marcado la opción de instalar Git Bash en el computador (que es lo que nos permitirá correr comandos de Linux en la consola sin problemas para trabajar con Git).
+- ![usar](src/38.png)
+- https://git-scm.com/downloads
+### Instalando Git en Linux
+- Cada distribución de Linux tiene un comando especial para instalar herramientas y actualizar el sistema. Aquí veremos un ejemplo de los comandos para instalar Git en Linux
+    ```bash
+    sudo apt-get update
+    sudo apt install git
+    git --version
+    ```
+- Sudo significa Super User DO. Se utiliza para correr comandos con credenciales de super usuario (sin restricciones).
+
+- En las distribuciones derivadas de Debian (como Ubuntu) el comando especial es apt-get, en Red Hat es yum y en ArchLinux es pacman. Cada distribución tiene su comando especial y debes averiguar cómo funciona para poder instalar Git.
+
+- Antes de hacer la instalación, debemos hacer una actualización del sistema. En nuestro caso, los comandos para hacerlo son sudo apt-get update y sudo apt-get upgrade.
+
+- Con el sistema actualizado, ahora sí podemos instalar Git y, en este caso, el comando para hacerlo es sudo apt-get install git. También puedes verificar que Git fue instalado correctamente con el comando git --version.
+
+### terminal y línea de comandos
+    - pwd: Nos muestra la ruta de carpetas en la que te encuentras ahora mismo.
+    mkdir: Nos permite crear carpetas (por ejemplo, mkdir Carpeta-Importante).
+    touch: Nos permite crear archivos (por ejemplo, touch archivo.txt).
+    rm: Nos permite borrar un archivo o carpeta (por ejemplo, rm archivo.txt). Mucho cuidado con este comando, puedes borrar todo tu disco duro.
+    cat: Ver el contenido de un archivo (por ejemplo, cat nombre-archivo.txt).
+    ls: Nos permite cambiar ver los archivos de la carpeta donde estamos ahora mismo. Podemos usar uno o más argumentos para ver más información sobre estos archivos (los argumentos pueden ser -- + el nombre del argumento o - + una sola letra o shortcut por cada argumento).
+        - ls -a: Mostrar todos los archivos, incluso los ocultos.
+        - ls -l: Ver todos los archivos como una lista.
+    cd: Nos permite navegar entre carpetas.
+        - cd /: Ir a la ruta principal:
+        - cd o cd ~: Ir a la ruta de tu usuario
+        - cd carpeta/subcarpeta: Navegar a una ruta dentro de la carpeta donde estamos ahora mismo.
+        - cd .. (cd + dos puntos): Regresar una carpeta hacia atrás.
+    - Si quieres referirte al directorio en el que te encuentras ahora mismo puedes usar cd . (cd + un punto).
+    history: Ver los últimos comandos que ejecutamos y un número especial con el que podemos repetir su ejecución.
+    ! + número: Ejecutar algún comando con el número que nos muestra el comando history (por ejemplo, !72).
+    clear: Para limpiar la terminal. También podemos usar los atajos de teclado Ctrl + L o Command + L.
+
+### Utilizando git y github en la vida real
+- Primero entrar a la carpeta del proyecto ojo "Tenemos que tener una cuenta en github y descargar git como tambien habilitar en el path" y creamos el repositorio en github.Luego poner estos comandos :
+
+  -  git config --global user.email "you@example.com"
+  -  git config --global user.name "Your Name"
+  -  git init (Sirver para crear un init en la carpeta del proyecto " es como un repositorio de Db")
+  -  git remote add origin link (en la aprte del link pegar el repositorio creado en github)
+  -  git status ( para ver los archivos estaran de color rojo)
+  -  git add * ( para agregar todos los achivos y enter)
+  -  git status ( y se pondra ahora de verde todo)
+  -  git commit -m "aqui frase" (en aqui frase poner ejemplo version 1 = sirve para ver los cambios)
+  -  git push origin master ( para subirpor fin todos los archivos)
+  -  aveces no funiona porque debe a ver almenos una en blanco de notepad o .txt Y ve a tus REPOSITORIO en -GITHUB y observaras que ya se subio todo los archivos
+- ![usar](src/39.webp)
+### Utilizando git, github y gitkraken en la vida real parte 2
