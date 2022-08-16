@@ -1484,3 +1484,4 @@ Una ejemplo de organizar los archivos de 🐍Python es de la siguiente manera.
   -  aveces no funiona porque debe a ver almenos una en blanco de notepad o .txt Y ve a tus REPOSITORIO en -GITHUB y observaras que ya se subio todo los archivos
 - ![usar](src/39.webp)
 ### Utilizando git, github y gitkraken en la vida real parte 2
+- ![usar](src/40.png)
