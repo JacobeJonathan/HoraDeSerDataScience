@@ -1485,3 +1485,16 @@ Una ejemplo de organizar los archivos de 🐍Python es de la siguiente manera.
 - ![usar](src/39.webp)
 ### Utilizando git, github y gitkraken en la vida real parte 2
 - ![usar](src/40.png)
+
+- ***Salimos de git con la letra Q***
+### ¿Qué es el staging?
+El staging es el lugar donde se guardan temporalmente los cambios, para luego ser llevados definitivamente al repositorio. El repositorio es el lugar donde se guardan todos los registros de los cambios realizados a los archivos.
+
+- Para iniciar un repositorio, o sea, activar el sistema de control de versiones de Git en tu proyecto, solo debes ejecutar el comando git init.
+
+¿Qué es el área de staging?
+- El área de staging se puede ver como un limbo donde nuestros archivos están por ser enviados al repositorio o ser regresados a la carpeta del proyecto.
+
+¿Qué es git init?
+- git inites el comando que activa git en nuestro proyecto creando un espacio en memoria RAM llamado staging y una carpeta .git.
+- ![usar](src/41.webp)
