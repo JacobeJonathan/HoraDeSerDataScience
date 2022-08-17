@@ -1498,3 +1498,15 @@ El staging es el lugar donde se guardan temporalmente los cambios, para luego se
 ¿Qué es git init?
 - git inites el comando que activa git en nuestro proyecto creando un espacio en memoria RAM llamado staging y una carpeta .git.
 - ![usar](src/41.webp)
+### ¿Qué es branch (rama) y cómo funciona un Merge en Git?
+- Una rama o branch es una versión del código del proyecto sobre el que estás trabajando. Estas ramas ayudan a mantener el orden en el control de versiones y manipular el código de forma segura.
+- ![usar](src/42.webp)
+***Cómo crear un branch o rama en Git***
+- El comando git branch permite crear una rama nueva. Si quieres empezar a trabajar en una nueva función, puedes crear una rama nueva a partir de la rama master con git branch new_branch. Una vez creada, puedes usar git checkout new_branch para cambiar a esa rama.
+
+- Recuerda que todas tus versiones salen de la rama principal o Master y de allí puedes tomar una versión específica para crear otra rama de versiones.
+
+***Cómo hacer merge***
+- Producir una nueva rama se conoce como Checkout. Unir dos ramas lo conocemos como Merge.
+
+- Cuando haces merge de estas ramas con el código principal, su código se fusiona originando una nueva versión de la rama master (o main) que ya tiene todos los cambios que aplicaste en tus experimentos o arreglos de errores.
