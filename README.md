@@ -1510,3 +1510,23 @@ El staging es el lugar donde se guardan temporalmente los cambios, para luego se
 - Producir una nueva rama se conoce como Checkout. Unir dos ramas lo conocemos como Merge.
 
 - Cuando haces merge de estas ramas con el código principal, su código se fusiona originando una nueva versión de la rama master (o main) que ya tiene todos los cambios que aplicaste en tus experimentos o arreglos de errores.
+
+## Terminal
+***¿Qué es la terminal?***
+- La terminal es un programa que ejecuta líneas de comandos, que a su vez estas líneas de comando ejecutan acciones y aquí tienes que aprender dos conceptos: terminal y shell.
+
+## Anaconda
+- ![usar](src/43.png) 
+- Anaconda es una distribución libre y abierta​ de los lenguajes Python y R, utilizada en ciencia de datos, y aprendizaje automático. Esto incluye procesamiento de grandes volúmenes de información, análisis predictivo y cómputos científicos.
+- Instalando otras librerias de graficos:
+- Primero nos vamos al ***anaconda prompt***
+- finalmente ponemos: ***conda install matplotlib***
+- ![usar](src/44.png) 
+### Utilizando graficas con libreria SEABORN
+- Importamos un data set: 
+    ```py
+    from sklearn.datasets import load_iris
+    ```
+- ![usar](src/45.png) 
+- ![usar](src/46.png) 
+
