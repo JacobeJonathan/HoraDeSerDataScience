@@ -1529,4 +1529,9 @@ El staging es el lugar donde se guardan temporalmente los cambios, para luego se
     ```
 - ![usar](src/45.png) 
 - ![usar](src/46.png) 
-
+- Luego tambien tenemos graficas como:
+  -  barplot
+  -  boxplot
+  -  iolinplot
+  -  matriz para heat map
+  -  eatmap
