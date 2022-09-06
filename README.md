@@ -1535,3 +1535,26 @@ El staging es el lugar donde se guardan temporalmente los cambios, para luego se
   -  iolinplot
   -  matriz para heat map
   -  eatmap
+
+### Etapas del proceso de desarrollo de software
+- El proceso de desarrollo tradicional tiene etapas muy marcadas, que tienen entradas, procesos y salidas que funcionan como entradas de la siguiente etapa.
+  - Análisis de requerimientos: Todo nace de un disparador que nos crea la necesidad de crear un artefacto o un sistema.
+    - Necesitamos entender cuál es el problema que queremos resolver. Hay requerimientos de negocio, requerimientos funcionales, requerimientos no funcionales.
+    - Al terminar esta etapa debemos tener una comprensión bastante clara del problema que vamos a resolver.
+  - Diseño de la solución: Análisis profundo de los problemas para trabajar en conjunto y plantear posibles soluciones. El resultado de esto debe ser el detalle de la solución, a través de requerimientos, modelado (UML), documentació. Resuelve preguntas tales como:
+    ¿Cómo va el usuario a utilizar la aplicación?
+    ¿Como se va a implementar la aplicación en producción y como será esto administrado?
+    ¿Cuales son los atributos requeridos por la aplicación? (rendimiento, seguridad, concurrencia, internacionalización, configuración)
+    ¿Cómo se puede diseñar la aplicación para que sea mantenible y flexible con el paso del tiempo?
+    ¿Cuales son las tendencias a nivel de arquitectura que pueden afectar la aplicación actualmente o una vez que ha sido implantada?
+    ¿Cuáles son las partes fundamentales de la arquitectura que representan el riesgo más grande si se hacen mal?
+    -¿Cuáles son los principales supuestos y como van a ser probados?
+    ¿Cuáles son las partes de la arquitectura que tienen más probabilidad de cambiar?
+    ¿Qué condiciones pueden llevar a que se tenga que refactorizar el diseño realizado?
+    ¿Porqué es esta la mejor opción de arquitectura?
+    ¿Qué medidas estamos tomando para mitigar los riesgos?
+  - Desarrollo y evolución: Implementación de la solución, para garantizar que lo que se esta construyendo es lo que se espera. Al finalizar esta etapa tendremos un artefacto de software.
+     - Es donde plasmamos en “código” las dos anteriores etapas, ademas de realizar test a dicho código. Debemos tener claros cuales son los criterios de aceptación de la solución, osea cual es el set de requerimientos necesario para construir esta solución y como hacemos para evaluarlos (TDD), el resultado de esta etapa es un artefacto de software.
+  - Despliegue: Aquí vamos a necesitar de infraestructura y de roles de operación para poder poner el artefacto a disponibilidad.
+     - Debemos implementar la solución (artefacto) que ya tenemos construida en productivo, AWS, GCP, Heroku, github-pages, hosting, play store, etc
+  - Mantenimiento y evolución: Desarrollo + despliegue + mantenimiento, en esta etapa estamos atentos a posible mejoras que se hacen al sistema. En esta etapa el software se mantiene hasta que el software ya deja de ser necesario.
