@@ -1558,3 +1558,22 @@ El staging es el lugar donde se guardan temporalmente los cambios, para luego se
   - Despliegue: Aquí vamos a necesitar de infraestructura y de roles de operación para poder poner el artefacto a disponibilidad.
      - Debemos implementar la solución (artefacto) que ya tenemos construida en productivo, AWS, GCP, Heroku, github-pages, hosting, play store, etc
   - Mantenimiento y evolución: Desarrollo + despliegue + mantenimiento, en esta etapa estamos atentos a posible mejoras que se hacen al sistema. En esta etapa el software se mantiene hasta que el software ya deja de ser necesario.
+## Excel
+- En Microsoft Excel, como en muchos otros programas, se manejan comandos especiales para que tu interacción dentro del libro de trabajo sea más fluida y rápida. Al comienzo, siempre aprendemos ejecutando acciones con el puntero del mouse, pero poco a poco y sin presionarte puedes ir intentando las siguientes combinaciones hasta que las ejecutes incluso sin notarlo y sin tener que pensarlas una a una.
+  - excelente aportación, aunque en la práctica hay un par que uso mucho y que serían de ayuda:
+     -   Buscar: Ctrl + b
+     -   Reemplazar: Ctrl + L
+     -   Agrupar: Ctrl + Shift + flecha derecha
+     -   Desagrupar: Ctrl + Shift + flecha izquierda
+     -   Formato de Celdas: Ctrl + 1 (la tecla 1 del teclado alfanumérico, con el del teclado numérico no funciona)
+     -   Ocultar Fila: Ctrl + 9
+     -   Ocultar Columna: Ctrl + 0
+### Importar datos y crear nuevos archivos
+- como importar un archivo txt a excel
+  - 1.- Archivos
+  - 2.- Abrir
+  - 3.- Examinar
+  - 4.- Todos los archivos
+
+### Barra de menú y sus funcionalidades
+
