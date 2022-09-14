@@ -1575,5 +1575,11 @@ El staging es el lugar donde se guardan temporalmente los cambios, para luego se
   - 3.- Examinar
   - 4.- Todos los archivos
 
-### Barra de menú y sus funcionalidades
-
+### Consulta información con BUSCARV
+- BUSCARV solo funciona cuando la informacion buscada esta despues del valor de referencia entre las dos tables. En este caso,
+La columan Product_id debe estar primero que Vendor_id.
+De lo contrario, dara un error. Esto es una limitacion de esta formula
+- ***F2*** Nos muestra la formula
+- ***F4*** Sirve para fijar
+- ![usar](src/47.jpg)
+- $ fijamos una fila cuando es antes de la A3 
