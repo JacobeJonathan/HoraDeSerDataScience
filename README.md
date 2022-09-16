@@ -1583,3 +1583,11 @@ De lo contrario, dara un error. Esto es una limitacion de esta formula
 - ***F4*** Sirve para fijar
 - ![usar](src/47.jpg)
 - $ fijamos una fila cuando es antes de la A3 
+
+### comandos muy usados
+- ctl + sirve para agregar una nueva fila
+- ctl - sirve para eliminar una fila
+- ctl + barra espaciadora sirve para seleccionar una columna
+
+### Consultas horizontales con BUSCARH y tipos de errores en fórmulas
+- ![usar](src/48.jpg)
