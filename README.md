@@ -1591,3 +1591,9 @@ De lo contrario, dara un error. Esto es una limitacion de esta formula
 
 ### Consultas horizontales con BUSCARH y tipos de errores en fórmulas
 - ![usar](src/48.jpg)
+- Hacer clic en la celda donde se desea escribir un valor de búsqueda.
+- Introducir un valor para buscar.
+- Hacer clic en Introducir o presionar Enter.
+- Hacer clic en la celda donde se desea agregar la función BUSCARH.
+- Hacer clic en el botón Insertar función. ...
+- Seleccionar la función BUSCARH
