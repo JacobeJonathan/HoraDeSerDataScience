@@ -1597,3 +1597,11 @@ De lo contrario, dara un error. Esto es una limitacion de esta formula
 - Hacer clic en la celda donde se desea agregar la función BUSCARH.
 - Hacer clic en el botón Insertar función. ...
 - Seleccionar la función BUSCARH
+
+## PostgreSQL
+
+### Curso de PostgreSQL
+
+### Curso de PostgreSQL Aplicado a Ciencia de Datos
+
+### Curso de Backend con Node.js: Base de Datos con PostgreSQL
