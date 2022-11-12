@@ -1739,6 +1739,29 @@ SELECT version();
 \timing
    - LIMPIAR PANTALLA DE LA CONSOLA PSQL
 Ctrl + L
+- Archivos de Configuración
+   - Los archivos de configuración son tres principales:
+
+        postgreql.conf
+        pg.hba.conf
+        pg_ident.conf
+        La ruta de los mismos depende del sistema Operarivo, para saber que que ruta estan, basta con hacer una Query
+
+        SHOW config_file;
+        NOTA: siempre es bueno hacer una copia original de los archivos antes de modificarlos por si movemos algo que no.
+    - A través de la sentencia SHOW CONFIG se nos muestra donde están los archivos de configuración. En mi caso la ruta es:
+    /Library/PostgreSQL/12/data/postgresql.conf
+
+        Algo a tener en cuenta es que en la ruta por default de instalación no se puede acceder debido a falta de permisos. Para ingresar basta con un:
+
+        sudo cd /Library/PostgreSQL/12/data/
+
+        Postgresql.conf: Configuración general de postgres, múltiples opciones referentes a direcciones de conexión de entrada, memoria, cantidad de hilos de pocesamiento, replica, etc.
+
+        pg_hba.conf: Muestra los roles así como los tipos de acceso a la base de datos.
+
+        pg_ident.conf: Permite realizar el mapeo de usuarios. Permite definir roles a usuarios del sistema operativo donde se ejecuta postgres.
+
 ### Curso de PostgreSQL Aplicado a Ciencia de Datos
 
 ### Curso de Backend con Node.js: Base de Datos con PostgreSQL
